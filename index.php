@@ -1,5 +1,5 @@
 <?php 
- /*                        Copyright 2005 Flávio Ribeiro
+ /*      Copyright 2005 FlÃ¡vio Ribeiro
 
          This file is part of OCOMON.
 
@@ -18,9 +18,11 @@
          Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
   */
 
+  /* Esse projeto Ã© uma continuidade do projeto inicial por Tihh GonÃ§alves (tiago@tiago.art.br) */
+
 is_file( "./includes/config.inc.php" )
-	or die( "Você precisa configurar o arquivo config.inc.php em OCOMON/INCLUDES/para iniciar o uso do OCOMON!<br>Leia o arquivo <a href='LEIAME.txt'>LEIAME.TXT</a> para obter as principais informações sobre a instalação do OCOMON!".
-		"<br><br>You have to configure the config.inc.php file in OCOMON/INCLUDES/ to start using Ocomon!<br>Read the file <a href='README.txt'>README.TXT</a>to get the main informations about the Ocomon Installation!" );
+	or die( "<p>Voce precisa configurar o arquivo config.inc.php em OCOMON/INCLUDES/para iniciar o uso do OCOMON!<br>Leia o arquivo <a href='LEIAME.txt'>LEIAME.TXT</a> para obter as principais informaÃ§Ãµes sobre a instalaÃ§Ã£o do OCOMON!".
+		"</p><p>You have to configure the config.inc.php file in OCOMON/INCLUDES/ to start using Ocomon!<br>Read the file <a href='README.txt'>README.TXT</a>to get the main informations about the Ocomon Installation!" );
 
 	session_start();
 	//session_destroy();
@@ -109,14 +111,14 @@ print "<table class='barra' border='0px' id='barra'><tr>";
 
 
 		$qryconf = $QRY["useropencall"];
-		$execconf = mysql_query($qryconf) or die('Não foi possível ler as informações de configuração do sistema!');
+		$execconf = mysql_query($qryconf) or die('Nï¿½o foi possï¿½vel ler as informaï¿½ï¿½es de configuraï¿½ï¿½o do sistema!');
 		$rowconf = mysql_fetch_array($execconf);
 
 		$qryStyle = "SELECT * FROM temas t, uthemes u  WHERE u.uth_uid = ".$_SESSION['s_uid']." and t.tm_id = u.uth_thid";
-		$execStyle = mysql_query($qryStyle) or die('ERRO NA TENTATIVA DE RECUPERAR AS INFORMAÇÕES DE ESTILOS!<BR>'.$qryStyle);
+		$execStyle = mysql_query($qryStyle) or die('ERRO NA TENTATIVA DE RECUPERAR AS INFORMAï¿½ï¿½ES DE ESTILOS!<BR>'.$qryStyle);
 		$rowStyle = mysql_fetch_array($execStyle);
 		$regs = mysql_num_rows($execStyle);
-		if ($regs==0){ //SE NÃO ENCONTROU TEMA ESPECÍFICO PARA O USUÁRIO
+		if ($regs==0){ //SE Nï¿½O ENCONTROU TEMA ESPECï¿½FICO PARA O USUï¿½RIO
 			unset ($rowStyle);
 			$qryStyle = "SELECT * FROM styles";
 			$execStyle = mysql_query($qryStyle);
@@ -186,7 +188,7 @@ print "</td></tr>";
 
 if ($_SESSION['s_logado']){
 
-	//BLOCO PARA RECARREGAR A PÁGINA NO MÓDULO ADMIN QUANDO FOR SELECIONADO NOVO TEMA
+	//BLOCO PARA RECARREGAR A Pï¿½GINA NO Mï¿½DULO ADMIN QUANDO FOR SELECIONADO NOVO TEMA
  	if (isset($_GET['LOAD']) && $_GET['LOAD'] == 'ADMIN'){
  		$PARAM = "&LOAD=ADMIN";
  		$marca = "ADMIN";
@@ -283,7 +285,7 @@ var GLArray = new Array();
 
 			else return true;
 		} else {
-			window.alert('Acesso indisponível!');
+			window.alert('Acesso indisponï¿½vel!');
 			return true;
 		}
 	}
@@ -396,7 +398,7 @@ var GLArray = new Array();
 
 	function valida(){
 
-		var ok = validaForm('idLogin','ALFAFULL','Usuário',1)
+		var ok = validaForm('idLogin','ALFAFULL','Usuï¿½rio',1)
 		if (ok) var ok = validaForm('idSenha','ALFAFULL','Senha',1);
 
 		return ok;
